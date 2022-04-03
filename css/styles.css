@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@400;500;700&display=swap');
+
+/* CSS Global variables */
+:root {
+  --text-color: #837E9F;
+  --bg-cards: #302F3D;
+  --bg-techs: #CB92B1;
+  --bg-green: #ADFF2F;
+}
+
+/* HTML5 display-role reset for browsers */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}

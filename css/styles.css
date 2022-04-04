@@ -2,6 +2,7 @@
 
 /* CSS Global variables */
 :root {
+  --body-bg-color: #22212C;
   --text-color: #837E9F;
   --bg-cards: #302F3D;
   --bg-techs: #CB92B1;
@@ -18,12 +19,14 @@
 body {
   height: 100%;
   font-family: 'Merriweather Sans', sans-serif;
-  background-color: var(--text-color);
+  background-color: var(--body-bg-color);
   -webkit-font-smoothing: antialiased;
 
   display: grid;
-  grid-template-columns: 21.75rem 1fr;
-  gap: 3.75rem;
+  grid-template-areas: 'aside main';
+  gap: 60px;
+  justify-content: center;
+  justify-items: center;
 }
 
 ul {
@@ -34,10 +37,18 @@ a {
   text-decoration: none;
 }
 
+aside {
+  grid-area: aside;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(auto, 348px));
+  position: relative;
+  top: 10px;
+  left: 30px;
+}
+
 aside .profile {
   width: 22rem;
-  height: 16rem;
-  margin: 10px 40px;
+  height: 17rem;
   background-color: var(--bg-cards);
   box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 20px;
@@ -65,25 +76,23 @@ aside .profile-details {
 
 aside .profile-details p {
   font-weight: 700;
-  font-size: 1.4rem;
-  line-height: 29px;
+  font-size: 1.8rem;
   color: var(--text-color);
   text-align: center;
 }
 
 aside .profile-details span {
   font-weight: 300;
-  font-size: .8rem;
-  line-height: 16px;
+  font-size: 1rem;
   color: var(--text-color);
   text-align: center;
-  margin-top: 0.62rem;
+  margin-top: .6rem;
 }
 
 aside .links {
   width: 22rem;
   height: 17rem;
-  margin: 20px 40px;
+  margin-top: 20px;
   background-color: var(--bg-cards);
   box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 20px;
@@ -91,7 +100,7 @@ aside .links {
 
 aside .links ul {
   position: absolute;
-  margin: 20px;
+  margin: 15px 20px ;
 }
 
 aside .links a {
@@ -115,8 +124,8 @@ aside .links span {
 
 aside .technologies {
   width: 22rem;
-  height: 13rem;
-  margin: 10px 40px ;
+  height: 12rem;
+  margin-top: 20px;
   background-color: var(--bg-cards);
   box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 20px;
@@ -125,16 +134,15 @@ aside .technologies {
 aside .technologies h2 {
   position: absolute;
   font-weight: 700;
-  font-size: 1.5rem;
-  line-height: 25px;
+  font-size: 1.2rem;
   color: var(--text-color);
-  margin: 30px 0 0 20px;
+  margin: 20px;
 }
 
 aside .technologies #data-table {
   width: 100%;
   position: relative;
-  top: 4.5rem;
+  top: 4rem;
 }
 
 aside .technologies #data-table tbody {
@@ -156,12 +164,221 @@ aside .technologies #data-table td {
   text-align: center;
 
   font-weight: 700;
-  font-size: .6rem;
+  font-size: 0.62rem;
   line-height: 13px;
 
   color: hsl(0, 0%, 0%);
 
   display: flex;
   justify-content: center;
+  align-items: center;
+}
+
+main {
+  grid-area: main;
+  display: grid;
+  grid-template-areas:
+    'header header'
+    'main main'
+    'recent-post recent-post'
+    'posts posts';
+  grid-template-columns: repeat(auto-fit, minmax(auto, 952px));
+  grid-auto-rows: min-content;
+  position: relative;
+  top: 20px;
+  margin-right: 40px;
+}
+
+main header {
+  grid-area: header;
+  width: 100%;
+  height: 5rem;
+  background: #302f3d;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  color: var(--text-color);
+}
+
+main header h2 {
+  font-weight: 700;
+  font-size: 1.2rem;
+  line-height: 25px;
+  margin-left: 2rem;
+}
+
+main header a {
+  font-weight: 400;
+  font-size: 0.8rem;
+  line-height: 18px;
+  margin-right: 2rem;
+  color: var(--text-color);
+}
+
+main .main-projects {
+  grid-area: main;
+  width: 100%;
+  height: 11rem;
+  margin-top: 20px;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+
+main .main-projects .project {
+  width: 100%;
+  height: 90%;
+  background-color: var(--bg-cards);
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  cursor: pointer;
+  color: var(--text-color);
+}
+
+main .main-projects .project .project-title {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 20px;
+}
+
+main .main-projects .project .project-title h3 {
+  display: inline;
+  font-weight: 700;
+  font-size: 16px;
+  text-align: center;
+}
+
+main .main-projects .project .project-title img {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+main .main-projects .project .project-description p {
+  font-size: 0.87rem;
+  line-height: 20px;
+  margin: 20px ;
+}
+
+main .main-projects .project .project-footer {
+  display: flex;
+  margin: 0 20px;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--text-color);
+}
+
+main .main-projects .project .project-footer .project-git {
+  display: flex;
+  gap: 1rem;
+  font-size: 1rem;
+  line-height: 18px;
+}
+
+main .main-projects .project .project-footer .project-language {
+  display: flex;
+  gap: 8px;
+  margin-right: 30px;
+  align-items: center;
+}
+
+main .main-projects .project .project-footer .project-language .language {
+  width: 1rem;
+  height: 1rem;
+  background: var(--bg-green);
+  border: 2px solid #837e9f;
+  border-radius: 50%;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  color: var(--text-color);
+}
+
+main .main-projects .project .project-footer .project-language .language p {
+  text-align: center;
+  font-size: 1rem;
+  line-height: 18px;
+}
+
+main .recent-post {
+  grid-area: recent-post;
+  width: 100%;
+  height: 5rem;
+  margin-top: 10px;
+  background: var(--bg-cards);
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+
+  display: flex;
+  align-items: center;
+}
+
+main .recent-post h2 {
+  margin-left: 30px;
+  font-weight: 700;
+  font-size: 1.2rem;
+  line-height: 25px;
+
+  color: var(--text-color);
+}
+
+main .posts {
+  grid-area: posts;
+  width: 100%;
+  height: 11rem;
+  margin-top: 10px;
+  background: var(--bg-cards);
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+
+  display: flex;
+  gap: 20px;
+}
+
+main .posts .avatar {
+  max-width: 8rem;
+  height: 8rem;
+  margin: 20px;
+}
+
+main .posts .avatar img {
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 50%;
+}
+
+main .posts .container-post {
+  color: var(--text-color);
+}
+
+main .posts .container-post .container-header-post {
+  margin-top: 20px;
+}
+
+main .posts .container-post .container-header-post h3 {
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 23px;
+}
+
+main .posts .container-post .container-header-post p {
+  margin-top: 1.7rem;
+}
+
+main .posts .container-post .container-header-post span {
+  font-weight: 400;
+  font-size: .8rem;
+  line-height: 18px;
+}
+
+main .posts .container-post .container-footer-post {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
   align-items: center;
 }
